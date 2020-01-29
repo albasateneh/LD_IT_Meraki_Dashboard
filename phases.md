@@ -11,6 +11,8 @@
 
 ## Phase I 
 
+* Create Folder Structure
+
 * Create very basic front end for dashboard.
 
 * Create basic server

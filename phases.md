@@ -13,6 +13,8 @@
 
 * Create Folder Structure
 
+* Set up basic html routes
+
 * Create very basic front end for dashboard.
 
 * Create basic server

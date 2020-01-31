@@ -11,27 +11,29 @@
 
 ## Phase I 
 
-* Create Folder Structure
+* [X] ~~*Create Folder Structure*~~ [2020-01-30]
 
-* Set up basic html routes
+* [X] ~~*Set up basic html routes*~~ [2020-01-30]
 
-* Create very basic front end for dashboard.
+* [X] ~~*Create basic server*~~ [2020-01-30]
 
-* Create basic server
+* [X] ~~*Create variable(s) (array of objects) for holding the data*~~ [2020-01-30]
 
-* Create variable(s) (array of objects) for holding the data
-
-* Static directory
+* [X] ~~*Static directory*~~ [2020-01-30]
     
     * app.use(express.static("public"));
 
-* API connection 
+* [X] ~~*API connection*~~ [2020-01-30] 
+
+* [ ] .gitignore
+
+* [ ] Hide API Key
 
 --------------------------------------------------------------------------------------------
 
 ## Phase II
 
-* What data do we need to pull initially? 
+* [ ] What data do we need to pull initially? 
 
     * Store Name
     * Appliance
@@ -39,31 +41,39 @@
     * Appliance Status
     * usingStaticIP: boolean
 
-* Create logic to pull data from different API endpoints and organize per store
+* [ ] Create logic to pull data from different API endpoints and organize per store
 
 --------------------------------------------------------------------------------------------
 
 ## Phase III
 
-* Create a set of routes that then display this data as JSON. Users should be given JSON if they visit the appropriate page(s);
+* [ ] Create a set of routes that then display this data as JSON. Users should be given JSON if they visit the appropriate page(s);
 
-* $.post data to Meraki Data on Click
+* [ ] $.post data to Meraki Data on Click
 
-* Check data shows as JSON on appropriate page
+* [ ] Check data shows as JSON on appropriate page
 
 --------------------------------------------------------------------------------------------
 
 ## Phase IV
 
-* post data to page
+* [ ] Design UI/UX
 
-* Design UI/UX
+* [ ] post data to page
 
 --------------------------------------------------------------------------------------------
 
 ## Phase V
 
-* Firewall settings
+* [ ] Authentication
+
+--------------------------------------------------------------------------------------------
+
+## Phase VI
+
+* [ ] Firewall Settings
+
+
 
 
 

@@ -42,6 +42,8 @@
     * usingStaticIP: boolean
 
 * [ ] Create logic to pull data from different API endpoints and organize per store
+    * [ ] forEach id get serial number
+    * [ ] forEach id and serial number get the rest of required data
 
 --------------------------------------------------------------------------------------------
 

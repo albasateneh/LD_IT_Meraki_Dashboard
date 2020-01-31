@@ -1,15 +1,21 @@
+// Dependencies
 const meraki = require("meraki");
-const configuration = meraki.Configuration;
+
+// Get Key
 const key = require('./key')
 const myKey = `${key.getKey()}`;
-console.log(myKey)
+
+// Establish Connection to API
+const configuration = meraki.Configuration;
 configuration.xCiscoMerakiAPIKey = myKey;
 
+// Getting data from multiple Endpoints.
 
-// meraki.OrganizationsController.getOrganizations().then(function (res) {
-//     console.log(res)})
-//         .catch(e => console.log(e));
- 
+// Store data
+
+
+
+
 // Get Network Device Uplink
 // let input  = {};
 // let networkId = 'N_651333096108466003';
@@ -26,18 +32,24 @@ configuration.xCiscoMerakiAPIKey = myKey;
 
 
 // All Network Locations
-// newObj = []
-// const params = {
-//     organizationId: "361444" // Meraki Launchpad Demo
-//   };
-//   meraki.NetworksController.getOrganizationNetworks(params)
-//     .then(function(res) {
-//      console.log(res)
+newObj = []
+const params = {
+    organizationId: "361444" // Meraki Launchpad Demo
+  };
+  meraki.NetworksController.getOrganizationNetworks(params)
+    .then(function(res) {
+   
+res.forEach(function(data) {
+    console.log(data.id, data.name)
 
+    // for each id run get Network Device and Serial number
+})
 
-//     })
+    })
     
-//     .catch(e => console.log(e));
+    .catch(e => console.log(e));
+
+
 
 // Get DHCPHandling
 // let networkId = 'N_651333096108460350';
@@ -56,17 +68,17 @@ configuration.xCiscoMerakiAPIKey = myKey;
 
 // Network Devices
 
-let params = [];
-let networkId = "N_651333096108465793"; // Sandbox Campus-SFO
-params["networkId"] = networkId;
+// let params = [];
+// let networkId = "N_651333096108465793"; // Sandbox Campus-SFO
+// params["networkId"] = networkId;
 
-meraki.DevicesController.getNetworkDevices(networkId) 
-  .then(res => {
-    console.log(res);
-  })
-  .catch(err => {
-    console.log(err);
-  });
+// meraki.DevicesController.getNetworkDevices(networkId) 
+//   .then(res => {
+//     console.log(res);
+//   })
+//   .catch(err => {
+//     console.log(err);
+//   });
 
 
 

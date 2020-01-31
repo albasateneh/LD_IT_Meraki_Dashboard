@@ -1,6 +1,6 @@
 var merakiData = [
     {
-    location: 'Corporate',
+    name: 'Corporate',
     WAN1: {
         status: 'Active',
         publicIp: '111.111.111',
@@ -13,7 +13,7 @@ var merakiData = [
     }
 },
 {
-    location: 'Corporate Guest',
+    name: 'Corporate Guest',
     WAN1: {
         status: 'Active',
         publicIp: '333.333.333',

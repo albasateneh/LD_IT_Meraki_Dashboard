@@ -36,7 +36,6 @@
 * [X] ~~*What data do we need to pull initially?*~~ [2020-01-31] 
 
     * Store Name
-    * Appliance
     * WAN 1/2 + public IP
     * Appliance Status
     * usingStaticIP: boolean

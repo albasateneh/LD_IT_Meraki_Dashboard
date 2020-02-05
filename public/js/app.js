@@ -32,22 +32,35 @@ configuration.xCiscoMerakiAPIKey = myKey;
 
 
 // All Network Locations
-newObj = []
 const params = {
     organizationId: "361444" // Meraki Launchpad Demo
   };
-  meraki.NetworksController.getOrganizationNetworks(params)
-    .then(function(res) {
+
+  const merakiNetworks = meraki.NetworksController.getOrganizationNetworks(params)
+  let newArr = [];
+  async function getNetworksandNames() {
+      const response = await merakiNetworks
+      const data = await response
+      data.forEach(function(data) {
+          const name = data.name
+          const id = data.id
+          newArr.push(name, id)
+          console.log(newArr)
+      })
+  }
+
+const result = getNetworksandNames();
+console.log(result)
+//     .then(function(res) {
    
-res.forEach(function(data) {
-    console.log(data.id, data.name)
-
-    // for each id run get Network Device and Serial number
-})
-
-    })
+// res.forEach(function(data) {
+//     console.log(data.id, data.name)
     
-    .catch(e => console.log(e));
+// })
+
+//     })
+    
+//     .catch(e => console.log(e));
 
 
 

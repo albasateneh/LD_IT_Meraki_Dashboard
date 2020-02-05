@@ -41,16 +41,28 @@ const params = {
   async function getNetworksandNames() {
       const response = await merakiNetworks
       const data = await response
-      data.forEach(function(data) {
-          const name = data.name
-          const id = data.id
-          newArr.push(name, id)
-          console.log(newArr)
-      })
+     return exececuteGetNetworksandNames(data);
+    //   data.forEach(function(data) {
+    //       const name = data.name
+    //       const id = data.id
+    //       newArr.push(name, id)
+    //       console.log(newArr)
+    //   })
   }
+  
+function exececuteGetNetworksandNames(data) {
+    var newArr = [];
+    data.forEach(function(res) {
+        var id = res.id
+        var name = res.name
+        newArr.push({id, name})
+        
 
-const result = getNetworksandNames();
-console.log(result)
+    })
+    console.log(newArr)
+}
+
+getNetworksandNames();
 //     .then(function(res) {
    
 // res.forEach(function(data) {

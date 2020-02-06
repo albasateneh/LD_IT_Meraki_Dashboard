@@ -38,28 +38,45 @@ const params = {
 
   const merakiNetworks = meraki.NetworksController.getOrganizationNetworks(params)
   
-  let newArr = [];
+  
   
   async function getNetworksandNames() {
       const response = await merakiNetworks
       const data = await response
-     return exececuteGetNetworksandNames(data);
-
-  }
-
-  function exececuteGetNetworksandNames(data) {
-    
-    data.forEach(function(res) {
-        var id = res.id
-        var name = res.name
-        newArr.push({id, name})
-        
+      const nameandId = [];
+      data.forEach(function(res) {
+        var id =  res.id
+        var name =  res.name
+        nameandId.push({id, name})
 
     })
-    console.log(newArr)
+   return nameandId
+   
+
+  }
+async function run() {
+    const data = await getNetworksandNames();
+    console.log(data[1])
+    // console.log(data)
 }
 
-getNetworksandNames();
+run();
+//   function exececuteGetNetworksandNames(data) {
+    
+//     data.forEach(function(res) {
+//         var id = res.id
+//         var name = res.name
+//         newArr.push({id, name})
+        
+
+//     })
+//     // console.log(newArr)
+// }
+
+// var result = getNetworksandNames();
+
+// console.log(result)
+
 
 
 

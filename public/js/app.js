@@ -54,47 +54,40 @@ const params = {
    
 
   }
-async function run() {
-    const data = await getNetworksandNames();
-    console.log(data[1])
-    // console.log(data)
-}
-
-run();
-//   function exececuteGetNetworksandNames(data) {
-    
-//     data.forEach(function(res) {
-//         var id = res.id
-//         var name = res.name
-//         newArr.push({id, name})
-        
-
-//     })
-//     // console.log(newArr)
-// }
-
-// var result = getNetworksandNames();
-
-// console.log(result)
-
 
 
 
 // Network Devices
 
-// function getSerial () {
-//   let params = [];
-// let networkId = "N_651333096108465793"; // Sandbox Campus-SFO
-// params["networkId"] = networkId;
+ async function getSerial () {
+    const useId = await run();
+// console.log(useId[11])
 
-// meraki.DevicesController.getNetworkDevices(networkId) 
-//   .then(res => {
-//     console.log(res);
-//   })
-//   .catch(err => {
-//     console.log(err);
-//   });  
-// }
+  
+    useId.forEach(function(res) {
+      meraki.DevicesController.getNetworkDevices(res) 
+     
+    })
+       
+    
+    
+    
+}
+
+
+// Run All Api endpoints
+async function run() {
+    const data = await getNetworksandNames();
+    const onlyIds = []
+data.forEach(function(res) {
+    const results = res.id
+    onlyIds.push(results);
+})
+return onlyIds;
+}
+
+run();
+getSerial();
 
 
 

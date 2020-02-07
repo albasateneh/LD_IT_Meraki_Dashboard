@@ -38,7 +38,22 @@ const params = {
 
   const merakiNetworks = meraki.NetworksController.getOrganizationNetworks(params)
   
-  
+  const getOrgDevs = meraki.DevicesController.getOrganizationDevices(params)
+
+  async function gettingOrgDevs() {
+    const response = await getOrgDevs;
+    const data = await response;
+    const idAndSerial = [];
+    data.forEach(function(res) {
+      const serial = res.serial;
+      const network = res.networkId;
+      idAndSerial.push({serial, network})
+
+    })
+    return idAndSerial;
+  }
+
+
   
   async function getNetworksandNames() {
       const response = await merakiNetworks
@@ -57,38 +72,15 @@ const params = {
 
 
 
-// Network Devices
-
- async function getSerial () {
-    const useId = await run();
-// console.log(useId[11])
-
-  
-    useId.forEach(function(res) {
-      meraki.DevicesController.getNetworkDevices(res) 
-     
-    })
-       
-    
-    
-    
-}
-
-
 // Run All Api endpoints
 async function run() {
     const data = await getNetworksandNames();
-    const onlyIds = []
-data.forEach(function(res) {
-    const results = res.id
-    onlyIds.push(results);
-})
-return onlyIds;
+    const data2 = await gettingOrgDevs();
+    
+console.log(data[0].id)
 }
-
 run();
-getSerial();
-
+// gettingOrgDevs();
 
 
 

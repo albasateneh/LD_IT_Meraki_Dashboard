@@ -73,11 +73,18 @@ const params = {
 
 
 // Run All Api endpoints
+// Loop through objects and when id's match, create new object with name, serial, and id
 async function run() {
+
     const data = await getNetworksandNames();
     const data2 = await gettingOrgDevs();
     
-console.log(data[0].id)
+console.log(data[0])
+console.log(data2[0])
+ 
+var newArray = [];
+
+
 }
 run();
 // gettingOrgDevs();

@@ -46,8 +46,8 @@ const params = {
     const idAndSerial = [];
     data.forEach(function(res) {
       const serial = res.serial;
-      const network = res.networkId;
-      idAndSerial.push({serial, network})
+      const id = res.networkId;
+      idAndSerial.push({serial, id})
 
     })
     return idAndSerial;
@@ -79,14 +79,29 @@ async function run() {
     const data = await getNetworksandNames();
     const data2 = await gettingOrgDevs();
     
-console.log(data[0])
-console.log(data2[0])
+// console.log(data)
+// console.log(data2)
  
-var newArray = [];
+const merge = (arr1, arr2) => {
+const temp = []
 
+arr1.forEach(x => {
+  arr2.forEach(y => {
+    if(x.id === y.id) {
+      temp.push({...x, ...y})
+
+    }
+  })
+})
+return temp
+}
+
+var newArray = merge(data, data2);
+console.log(newArray);
 
 }
-run();
+
+run()
 // gettingOrgDevs();
 
 

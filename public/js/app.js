@@ -128,22 +128,26 @@ run();
 // const temp = [];
 
 // networkId.forEach(function(res) {
-// temp.push(res.id)
-
-// })
-// temp.forEach(function(res, i) {
-//   setTimeout(() => {
-//     meraki.DevicesController.getNetworkDevices(res) 
-//     .then(res => {
-//       console.log(res);
+//   temp.push(res.id)
+  
 //     })
-//     .catch(err => {
-//       console.log(err);
-//     });
-//   }, i * 7000 ) 
-
-// })
-
-// }
-
-// run();
+//     temp.forEach(function(res, i) {
+//       setTimeout(() => {
+//         meraki.DevicesController.getNetworkDevices(res) 
+//         .then(res => {
+//           res.forEach(function(result) {
+//             var id = result.networkId
+//             var serial = result.serial
+//             console.log({id, serial})
+//           })
+//         })
+//         .catch(err => {
+//           console.log(err);
+//         });
+//       }, i * 200 ) 
+    
+//     })
+  
+//   }
+  
+//   run();

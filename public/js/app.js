@@ -82,27 +82,68 @@ async function run() {
 // console.log(data)
 // console.log(data2)
  
-const merge = (arr1, arr2) => {
-const temp = []
+// const merge = (arr1, arr2) => {
+// const temp = []
 
-arr1.forEach(x => {
-  arr2.forEach(y => {
-    if(x.id === y.id) {
-      temp.push({...x, ...y})
+// arr1.forEach(x => {
+//   arr2.forEach(y => {
+//     if(x.id === y.id) {
+//       temp.push({...x, ...y})
 
-    }
-  })
-})
-return temp
+//     }
+//   })
+// })
+// return temp
+// }
+
+// var newArray = merge(data, data2);
+// console.log(newArray);
+
 }
 
-var newArray = merge(data, data2);
-console.log(newArray);
-
-}
-
-run()
-// gettingOrgDevs();
+run();
 
 
 
+// const merakiNetworks = meraki.NetworksController.getOrganizationNetworks(params)
+
+// async function getNetworksandNames() {
+//   const response = await merakiNetworks
+//   const data = await response
+//   const idArr = [];
+//   data.forEach(function(res) {
+//     var id =  res.id
+//     idArr.push({id})
+
+// })
+// return idArr
+
+
+// }
+
+// async function run() {
+// const data = await getNetworksandNames();
+// let networkId = data; // Sandbox Campus-SFO
+// // console.log(networkId)
+// const temp = [];
+
+// networkId.forEach(function(res) {
+// temp.push(res.id)
+
+// })
+// temp.forEach(function(res, i) {
+//   setTimeout(() => {
+//     meraki.DevicesController.getNetworkDevices(res) 
+//     .then(res => {
+//       console.log(res);
+//     })
+//     .catch(err => {
+//       console.log(err);
+//     });
+//   }, i * 7000 ) 
+
+// })
+
+// }
+
+// run();

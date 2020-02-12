@@ -66,6 +66,7 @@ const merakiNetworks = meraki.NetworksController.getOrganizationNetworks(params)
   async function getSerial() {
     const networkArr = await run();
 const temp = []
+var temp2 = []
   for (const x of networkArr) {
         const result = await meraki.DevicesController.getNetworkDevices(x) 
         const data = await result
@@ -74,8 +75,13 @@ const temp = []
           temp.push(y)
         }
   }
-  console.log(temp)
-    
+  temp.forEach(function(res) {
+    var id = res.networkId;
+    var serial = res.serial;
+    temp2.push({id, serial})
+
+  })
+    return temp2
   
   }
    
@@ -87,28 +93,28 @@ const temp = []
 
 async function merge1() {
 
-    // const data = await getNetworksandNames();
-    // console.log(data)
+    const data = await getNetworksandNames();
+    const data2 = await getSerial();
     
-// console.log(data)
-// console.log(data2)
+console.log(data)
+console.log(data2)
  
-// const merge = (arr1, arr2) => {
-// const temp = []
+const merge = (arr1, arr2) => {
+const temp = []
 
-// arr1.forEach(x => {
-//   arr2.forEach(y => {
-//     if(x.id === y.id) {
-//       temp.push({...x, ...y})
+arr1.forEach(x => {
+  arr2.forEach(y => {
+    if(x.id === y.id) {
+      temp.push({...x, ...y})
 
-//     }
-//   })
-// })
-// return temp
-// }
+    }
+  })
+})
+return temp
+}
 
-// var newArray = merge(data, data2);
-// console.log(newArray);
+var newArray = merge(data, data2);
+console.log(newArray);
 
 }
 

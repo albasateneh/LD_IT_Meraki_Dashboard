@@ -9,52 +9,20 @@ const myKey = `${key.getKey()}`;
 const configuration = meraki.Configuration;
 configuration.xCiscoMerakiAPIKey = myKey;
 
-// Getting data from multiple Endpoints.
+// ================================================================================
+// GLOBAL VARIABLES
+// ================================================================================
 
-// Store data
-
-
-
-
-// Get Network Device Uplink
-// let input  = {};
-// let networkId = 'N_651333096108466003';
-// input['networkId'] = networkId;
-
-// let serial = 'Q2KN-6UJM-HHWM'
-// input['serial'] = serial
-
-// meraki.DevicesController.getNetworkDeviceUplink(input)
-// .then(function(res) {
-//     console.log(res)
-// }).catch(e => console.log(e))
-
-
-
-// All Network Locations
 const params = {
-    organizationId: "361444" // Meraki Launchpad Demo
-  };
+  organizationId: "361444" // Meraki Launchpad Demo
+};
 
-  const merakiNetworks = meraki.NetworksController.getOrganizationNetworks(params)
-  
-  const getOrgDevs = meraki.DevicesController.getOrganizationDevices(params)
+const merakiNetworks = meraki.NetworksController.getOrganizationNetworks(params)
 
-  async function gettingOrgDevs() {
-    const response = await getOrgDevs;
-    const data = await response;
-    const idAndSerial = [];
-    data.forEach(function(res) {
-      const serial = res.serial;
-      const id = res.networkId;
-      idAndSerial.push({serial, id})
-
-    })
-    return idAndSerial;
-  }
-
-
-  
+// ================================================================================
+// Returns Networks and Names
+// ================================================================================
+ 
   async function getNetworksandNames() {
       const response = await merakiNetworks
       const data = await response
@@ -62,22 +30,61 @@ const params = {
       data.forEach(function(res) {
         var id =  res.id
         var name =  res.name
-        nameandId.push({id, name})
+        
+        if (name.includes("LD")) {
+          nameandId.push({id, name})
+        }
+        
 
     })
    return nameandId
    
 
   }
+// ================================================================================
+// Returns Network Array to use in getSerial
+// ================================================================================
 
-
-
-// Run All Api endpoints
-// Loop through objects and when id's match, create new object with name, serial, and id
-async function run() {
-
+  async function run() {
     const data = await getNetworksandNames();
-    const data2 = await gettingOrgDevs();
+    let networkId = data; // Sandbox Campus-SFO
+    // console.log(networkId)
+    const temp = [];
+  
+    networkId.forEach(function(res) {
+  temp.push(res.id)
+  
+    })
+  return temp
+  }
+
+
+// ================================================================================
+// Returns Serial for every device per NetworkID
+// ================================================================================
+
+  async function getSerial() {
+    const networkArr = await run();
+
+  for (const x of networkArr) {
+        const result = await meraki.DevicesController.getNetworkDevices(x) 
+        const data = await result
+        console.log(data)
+  }
+    
+  
+  }
+   
+  getSerial();
+
+// ================================================================================
+// Merge Data Sets
+// ================================================================================  
+
+async function merge1() {
+
+    // const data = await getNetworksandNames();
+    // console.log(data)
     
 // console.log(data)
 // console.log(data2)
@@ -101,81 +108,4 @@ async function run() {
 
 }
 
-run();
-
-
-
-// const merakiNetworks = meraki.NetworksController.getOrganizationNetworks(params)
-
-// async function getNetworksandNames() {
-//   const response = await merakiNetworks
-//   const data = await response
-//   const idArr = [];
-//   data.forEach(function(res) {
-//     var id =  res.id
-//     idArr.push({id})
-
-// })
-// return idArr
-
-
-// }
-
-// async function run() {
-// const data = await getNetworksandNames();
-// let networkId = data; // Sandbox Campus-SFO
-// // console.log(networkId)
-// const temp = [];
-
-// networkId.forEach(function(res) {
-//   temp.push(res.id)
-  
-//     })
-//     temp.forEach(function(res, i) {
-//       setTimeout(() => {
-//         meraki.DevicesController.getNetworkDevices(res) 
-//         .then(res => {
-//           res.forEach(function(result) {
-//             var id = result.networkId
-//             var serial = result.serial
-//             console.log({id, serial})
-//           })
-//         })
-//         .catch(err => {
-//           console.log(err);
-//         });
-//       }, i * 200 ) 
-    
-//     })
-  
-//   }
-  
-//   run();
-
-
-// async function run() {
-//   const data = await getNetworksandNames();
-//   let networkId = data; // Sandbox Campus-SFO
-//   // console.log(networkId)
-//   const temp = [];
-
-//   networkId.forEach(function(res) {
-// temp.push(res.id)
-
-//   })
-// return temp
-// }
-
-
-// async function getSerial() {
-//   const networkArr = await run();
-  
-// for (const x of networkArr) {
-//       const result = await meraki.DevicesController.getNetworkDevices(x) 
-//       console.log(result)
-// }
-  
-
-// }
- 
-// getSerial();
+merge1();

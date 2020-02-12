@@ -151,3 +151,31 @@ run();
 //   }
   
 //   run();
+
+
+// async function run() {
+//   const data = await getNetworksandNames();
+//   let networkId = data; // Sandbox Campus-SFO
+//   // console.log(networkId)
+//   const temp = [];
+
+//   networkId.forEach(function(res) {
+// temp.push(res.id)
+
+//   })
+// return temp
+// }
+
+
+// async function getSerial() {
+//   const networkArr = await run();
+  
+// for (const x of networkArr) {
+//       const result = await meraki.DevicesController.getNetworkDevices(x) 
+//       console.log(result)
+// }
+  
+
+// }
+ 
+// getSerial();

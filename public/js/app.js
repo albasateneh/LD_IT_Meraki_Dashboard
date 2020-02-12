@@ -65,12 +65,16 @@ const merakiNetworks = meraki.NetworksController.getOrganizationNetworks(params)
 
   async function getSerial() {
     const networkArr = await run();
-
+const temp = []
   for (const x of networkArr) {
         const result = await meraki.DevicesController.getNetworkDevices(x) 
         const data = await result
-        console.log(data)
+       
+        for (const y of data) {
+          temp.push(y)
+        }
   }
+  console.log(temp)
     
   
   }

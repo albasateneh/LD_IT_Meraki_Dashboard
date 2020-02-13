@@ -97,6 +97,8 @@ async function getSerial() {
 // ================================================================================
 // Get Device Uplink
 // ================================================================================  
+merge1();
+
 async function deviceUplink() {
   const input = await getSerial();
   const temp = [];
@@ -113,31 +115,30 @@ deviceUplink();
 // Merge Data Sets
 // ================================================================================  
 
-// async function merge1() {
+async function merge1() {
 
-//   const data = await getNetworksandNames();
-//   const data2 = await getSerial();
+  const data = await getNetworksandNames();
+  const data2 = await getSerial();
 
-//   // console.log(data)
-//   // console.log(data2)
+  // console.log(data)
+  // console.log(data2)
 
-//   const merge = (arr1, arr2) => {
-//     const temp = []
+  const merge = (arr1, arr2) => {
+    const temp = []
 
-//     arr1.forEach(x => {
-//       arr2.forEach(y => {
-//         if (x.networkId === y.networkId) {
-//           temp.push({ ...x, ...y })
+    arr1.forEach(x => {
+      arr2.forEach(y => {
+        if (x.networkId === y.networkId) {
+          temp.push({ ...x, ...y })
 
-//         }
-//       })
-//     })
-//     return temp
-//   }
+        }
+      })
+    })
+    return temp
+  }
 
-//   var newArray = merge(data, data2);
-//   console.log(newArray);
+  var newArray = merge(data, data2);
+  console.log(newArray);
 
-// }
+}
 
-// merge1();

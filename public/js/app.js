@@ -37,11 +37,11 @@ async function getNetworksandNames() {
   const data = await response
   const nameandId = [];
   data.forEach(function (res) {
-    var id = res.id
+    var networkId = res.id
     var name = res.name
 
     if (name.includes("LD")) {
-      nameandId.push({ id, name })
+      nameandId.push({ networkId, name })
     }
 
 
@@ -56,12 +56,12 @@ async function getNetworksandNames() {
 
 async function run() {
   const data = await getNetworksandNames();
-  let networkId = data; // Sandbox Campus-SFO
+  let networkID = data; // Sandbox Campus-SFO
   // console.log(networkId)
   const temp = [];
 
-  networkId.forEach(function (res) {
-    temp.push(res.id)
+  networkID.forEach(function (res) {
+    temp.push(res.networkId)
 
   })
   return temp
@@ -87,7 +87,7 @@ async function getSerial() {
   temp.forEach(function (res) {
     var networkId = res.networkId;
     var serial = res.serial;
-    temp2.push({networkId, serial })
+    temp2.push({ networkId, serial })
 
   })
   return temp2
@@ -97,37 +97,36 @@ async function getSerial() {
 // ================================================================================
 // Get Device Uplink
 // ================================================================================  
+async function deviceUplink() {
+  const input = await getSerial();
+  const temp = [];
 
-// async function deviceUplink() {
-//   const input = await getSerial();
-//   const temp = [];
-
-//   for (const x of input) {
-//     const result = await meraki.DevicesController.getNetworkDeviceUplink(x)
-//     .catch(e => console.log(e))
-//     console.log(result)
-//   }
-// }
-// deviceUplink();
+  for (const x of input) {
+    const result = await meraki.DevicesController.getNetworkDeviceUplink(x)
+    const data = await result
+    console.log(data)
+  }
+}
+deviceUplink();
 
 // ================================================================================
 // Merge Data Sets
 // ================================================================================  
 
-async function merge1() {
+// async function merge1() {
 
-  const data = await getNetworksandNames();
-  const data2 = await getSerial();
+//   const data = await getNetworksandNames();
+//   const data2 = await getSerial();
 
-  console.log(data)
-  console.log(data2)
+//   // console.log(data)
+//   // console.log(data2)
 
 //   const merge = (arr1, arr2) => {
 //     const temp = []
 
 //     arr1.forEach(x => {
 //       arr2.forEach(y => {
-//         if (x.id === y.id) {
+//         if (x.networkId === y.networkId) {
 //           temp.push({ ...x, ...y })
 
 //         }
@@ -139,6 +138,6 @@ async function merge1() {
 //   var newArray = merge(data, data2);
 //   console.log(newArray);
 
-}
+// }
 
-merge1();
+// merge1();

@@ -105,17 +105,13 @@ async function deviceUplink() {
   for (const x of input) {
     const result = await meraki.DevicesController.getNetworkDeviceUplink(x)
     const data = await result
-    console.log(data)
+   temp.push(data)
   }
+  return temp
 }
 
-async function printAll() {
-  const merging = await merge1();
-  const uplinking = await deviceUplink();
-  console.log(merging);
-  console.log(uplinking);
 
-}
+
 
 
 // ================================================================================
@@ -145,8 +141,15 @@ async function merge1() {
   }
 
   var newArray = merge(data, data2);
-  console.log(newArray);
+ return newArray
 
 }
 
+async function printAll() {
+  const merging = await merge1();
+  const uplinking = await deviceUplink();
+  console.log(merging);
+  console.log(uplinking);
+
+}
 printAll();

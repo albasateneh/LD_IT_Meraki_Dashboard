@@ -97,7 +97,6 @@ async function getSerial() {
 // ================================================================================
 // Get Device Uplink
 // ================================================================================  
-merge1();
 
 async function deviceUplink() {
   const input = await getSerial();
@@ -109,7 +108,15 @@ async function deviceUplink() {
     console.log(data)
   }
 }
-deviceUplink();
+
+async function printAll() {
+  const merging = await merge1();
+  const uplinking = await deviceUplink();
+  console.log(merging);
+  console.log(uplinking);
+
+}
+
 
 // ================================================================================
 // Merge Data Sets
@@ -142,3 +149,4 @@ async function merge1() {
 
 }
 
+printAll();

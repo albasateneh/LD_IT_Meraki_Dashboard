@@ -107,7 +107,8 @@ async function deviceUplink() {
     const data = await result
    temp.push(data)
   }
-  return temp.length
+  // return temp.length
+  return temp
 }
 
 
@@ -141,15 +142,32 @@ async function merge1() {
   }
 
   var newArray = merge(data, data2);
- return newArray.length
+//  return newArray.length
+ return newArray
 
 }
 
 async function printAll() {
   const merging = await merge1();
   const uplinking = await deviceUplink();
-  console.log(merging);
-  console.log(uplinking);
+  // console.log(merging);
+  // console.log(uplinking);
+const temp = []
+ uplinking.forEach(function(res, index) {
+  merging.forEach(function(res2, index2) {
+    if (index === index2) {
+      res.push(res2)
+      temp.push(res)
+    }
+    
+     }) 
+     console.log(temp)
+    })
+    
 
+
+
+  
+  
 }
 printAll();

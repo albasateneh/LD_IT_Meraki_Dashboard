@@ -1,3 +1,6 @@
+$(document).ready(function() {
+
+
 // ================================================================================
 // Dependencies
 // ================================================================================
@@ -174,7 +177,11 @@ async function printAll() {
 
 async function dataSet() {
   const data = await printAll();
-  console.log(data)
+  $.post("/api/data", data, function(data) {
+    console.log(data)
+  })
 }
 
 dataSet();
+
+});

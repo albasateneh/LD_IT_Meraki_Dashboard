@@ -5,7 +5,7 @@ var express = require('express');
 // Express Configuration
 //============================================
 var app = express();
-var PORT = process.env.PORT;
+var PORT = 8080;
 
 // Data Parsing
 app.use(express.urlencoded({ extended: true }));
@@ -16,8 +16,8 @@ app.use(express.static("public"));
 //============================================
 
 // Router
+require("./routes/apiRoutes")(app)
 require("./routes/htmlRoutes")(app);
-
 
 
 // Listener

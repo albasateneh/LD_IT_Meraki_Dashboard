@@ -105,7 +105,7 @@ async function deviceUplink() {
   for (const x of input) {
     const result = await meraki.DevicesController.getNetworkDeviceUplink(x)
     const data = await result
-   temp.push(data)
+    temp.push(data)
   }
   // return temp.length
   return temp
@@ -142,8 +142,8 @@ async function merge1() {
   }
 
   var newArray = merge(data, data2);
-//  return newArray.length
- return newArray
+  //  return newArray.length
+  return newArray
 
 }
 
@@ -152,22 +152,29 @@ async function printAll() {
   const uplinking = await deviceUplink();
   // console.log(merging);
   // console.log(uplinking);
-const temp = []
- uplinking.forEach(function(res, index) {
-  merging.forEach(function(res2, index2) {
-    if (index === index2) {
-      res.push(res2)
-      temp.push(res)
-    }
-    
-     }) 
-     console.log(temp)
+  const temp = []
+  uplinking.forEach(function (res, index) {
+    merging.forEach(function (res2, index2) {
+      if (index === index2) {
+        res.push(res2)
+        temp.push(res)
+      }
+
     })
     
+  })
+  return temp;
 
 
 
-  
-  
+
+
+
 }
-printAll();
+
+async function dataSet() {
+  const data = await printAll();
+  console.log(data)
+}
+
+dataSet();

@@ -1,6 +1,3 @@
-$(document).ready(function() {
-
-
 // ================================================================================
 // Dependencies
 // ================================================================================
@@ -13,6 +10,7 @@ const meraki = require("meraki");
 
 const key = require('./key')
 const myKey = `${key.getKey()}`;
+console.log(myKey)
 
 // ================================================================================
 // Establish Connection to API
@@ -177,11 +175,8 @@ async function printAll() {
 
 async function dataSet() {
   const data = await printAll();
-  $.post("/api/data", data, function(data) {
     console.log(data)
-  })
 }
 
 dataSet();
 
-});

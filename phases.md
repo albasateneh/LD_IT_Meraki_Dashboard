@@ -3,8 +3,10 @@
 * Server
 * Routing
 * API
-* AJAX (GET & POST Requests)
-* UI/UX
+* Axios (GET & POST Requests)
+* UI/UX Optional
+* Automation
+* Integrate with Azure
 * Deployment
 
 --------------------------------------------------------------------------------------------
@@ -40,21 +42,21 @@
     * Appliance Status
     * usingStaticIP: boolean
 
-* [ ] Create logic to pull data from different API endpoints and organize per store
+* [X] ~~*Create logic to pull data from different API endpoints and organize per store*~~ [2020-02-20]
   
 --------------------------------------------------------------------------------------------
 
 ## Phase III
 
-* [ ] Create a set of routes that then display this data as JSON. Users should be given JSON if they visit the appropriate page(s);
+* [X] ~~*Create a set of routes that then display this data as JSON. Users should be given JSON if they visit the appropriate page(s);*~~ [2020-02-20]
 
-* [ ] $.post data to Meraki Data on Click
+* [X] ~~*$.post data to Meraki Data*~~ [2020-02-20]
 
-* [ ] Check data shows as JSON on appropriate page
+* [X] ~~*Check data shows as JSON on appropriate page*~~ [2020-02-20]
 
 --------------------------------------------------------------------------------------------
 
-## Phase IV
+## Phase IV *** Optional due to automation ***
 
 * [ ] Design UI/UX
 

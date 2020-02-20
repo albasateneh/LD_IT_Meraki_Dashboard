@@ -6,7 +6,7 @@ module.exports = function(app) {
     });
 
     app.post('/api/data', function(req, res) {
-        merakiData.push(req.body)
+        merakiData = req.body
     });
 
     app.get('/api/client', function(req, res) {

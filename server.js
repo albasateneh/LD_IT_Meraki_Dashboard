@@ -19,8 +19,8 @@ var app = express();
 var PORT = 8080;
 
 // Data Parsing
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(express.json({limit: '50mb'}));
+app.use(express.urlencoded({limit: '50mb'}));
 
 // Allow Express to serve Static Files
 app.use(express.static("public"));
@@ -132,6 +132,31 @@ async function deviceUplink() {
 }
 
 // ================================================================================
+// Get Clients
+// ================================================================================  
+
+const clientController = meraki.ClientsController;
+
+async function clients() {
+  const networks = await getNetworksandNames();
+  const temp = []
+  const temp2 = []
+  networks.forEach(function (res) {
+    var networkId = res.networkId;
+    var perPage = 100;
+    temp.push({ networkId, perPage })
+  })
+  for (const x of temp) {
+    const result = await clientController.getNetworkClients(x)
+      .catch(e => console.log(e))
+    const data = await result
+    // console.log(data.length)
+    temp2.push(data)
+  }
+  return temp2;
+}
+
+// ================================================================================
 // Merge Data Sets
 // ================================================================================  
 
@@ -177,30 +202,36 @@ async function printAll() {
       }
 
     })
-    
+
   })
   return temp;
-
-
-
-
-
-
 }
 
+// ================================================================================
+// Post to Server
+// ================================================================================  
+
 const baseURL = "http://localhost:8080"
+
 async function dataSet() {
   const data = await printAll();
   console.log(data)
   console.log("Posting........")
-    axios.post(baseURL + '/api/data', data)
-  .catch(e => console.log(e))
+  axios.post(baseURL + '/api/data', data)
+    // .catch(e => console.log(e))
 }
 
 dataSet();
 
+async function clientSet() {
+  const data = await clients()
+  console.log("Posting..........")
+  axios.post(baseURL + "/api/client", data)
+}
+
+clientSet();
 
 // Listener
-app.listen(PORT, function() {
-    console.log("App listening on PORT: " + PORT);
+app.listen(PORT, function () {
+  console.log("App listening on PORT: " + PORT);
 });

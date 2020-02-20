@@ -205,6 +205,24 @@ async function printAll() {
 
   })
   return temp;
+
+}
+
+async function merge2() {
+const initData = await printAll();
+const clientData = await clients();
+const temp = [];
+initData.forEach(function(res, index) {
+  clientData.forEach(function(res2, index2) {
+    if (index === index2) {
+      res.push(res2)
+      temp.push(res)
+    }
+  })
+})
+return temp;
+
+
 }
 
 // ================================================================================
@@ -214,7 +232,7 @@ async function printAll() {
 const baseURL = "http://localhost:8080"
 
 async function dataSet() {
-  const data = await printAll();
+  const data = await merge2();
   console.log(data)
   console.log("Posting........")
   axios.post(baseURL + '/api/data', data)
@@ -223,13 +241,13 @@ async function dataSet() {
 
 dataSet();
 
-async function clientSet() {
-  const data = await clients()
-  console.log("Posting..........")
-  axios.post(baseURL + "/api/client", data)
-}
+// async function clientSet() {
+//   const data = await clients()
+//   console.log("Posting..........")
+//   axios.post(baseURL + "/api/client", data)
+// }
 
-clientSet();
+// clientSet();
 
 // Listener
 app.listen(PORT, function () {

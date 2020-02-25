@@ -61,6 +61,9 @@
 * [ ] Design UI/UX
 
 * [ ] post data to page
+    * [ ] Offline devices by store
+    * [ ] Security appliance information
+        * [ ] WAN 1/ WAN 2 offline status
 
 --------------------------------------------------------------------------------------------
 

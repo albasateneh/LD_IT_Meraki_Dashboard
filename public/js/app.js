@@ -1,6 +1,5 @@
 $(document).ready(function() {
   $("#button").on("click", function() {
-    alert("clicked")
    $.get("/api/data", function(data) {
   data.forEach(function(res) {
     console.log(res)

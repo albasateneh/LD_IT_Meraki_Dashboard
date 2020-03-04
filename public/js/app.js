@@ -2,8 +2,8 @@ $(document).ready(function() {
   $("#button").on("click", function() {
    $.get("/api/data", function(data) {
   data.forEach(function(res) {
-    console.log(res)
-   
+    var devices = res
+   console.log(devices[3])
      var listItem = $("<li class='list-group-item mt-4'>");
 
      listItem.append(
@@ -19,6 +19,11 @@ $(document).ready(function() {
       $("<li>").text("Status: " + res[1].status),
       $("<li>").text("Public IP: " +  res[1].publicIp),
       $("<li>").text("Using Static: " + res[1].usingStaticIp),
+      $("<hr>"),
+      $("<li>").text("Device name: " + devices[3][0].description),
+      $("<li>").text("IP " + devices[3][0].ip),
+      $("<li>").text("Status " + devices[3][0].status)
+      
       
 
      );

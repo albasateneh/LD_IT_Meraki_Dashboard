@@ -15,5 +15,10 @@ module.exports = function(app) {
     
     app.post('/api/client', function(req, res) {
         clientData.push(req.body)
-    })
+    });
+
+    app.post('/api/clear', function() {
+        merakiData = [];
+        console.log(merakiData)
+    });
 }

@@ -37,4 +37,21 @@ $(document).ready(function() {
       
      
    })
+
+  //  const baseURL = "http://localhost:8080"
+ 
+// function clearData() {
+//   setInterval(function() {
+//     $.post(baseURL + '/api/clear')
+//     // location.reload()
+//   }, 10000)
+// }
+
+// // $("#clear").on('click', function() {
+// //   alert("Clearing....")
+//   clearData();
+  
+// // })
+
+
   })

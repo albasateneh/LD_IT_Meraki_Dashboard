@@ -52,6 +52,7 @@ const merakiNetworks = meraki.NetworksController.getOrganizationNetworks(params)
 // Returns Networks and Names
 // ================================================================================
 
+
 async function getNetworksandNames() {
   const response = await merakiNetworks
   const data = await response
@@ -241,13 +242,22 @@ async function dataSet() {
 
 dataSet();
 
-// async function clientSet() {
-//   const data = await clients()
-//   console.log("Posting..........")
-//   axios.post(baseURL + "/api/client", data)
-// }
+// ================================================================================
+// Set Interval to continuosly clear and update data
+// ================================================================================ 
+function clearData() {
+  setInterval(function() {
+    console.log("clearing.....")
+    axios.post(baseURL + '/api/clear')
+    // location.reload()
+  }, 150000)
+}
 
-// clientSet();
+// $("#clear").on('click', function() {
+//   alert("Clearing....")
+  clearData();
+  
+// })
 
 // Listener
 app.listen(PORT, function () {

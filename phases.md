@@ -58,24 +58,25 @@
 
 ## Phase IV *** Optional due to automation ***
 
-* [ ] Design UI/UX
+* [X] ~~*Design UI/UX*~~ [2020-03-05]
 
-* [ ] post data to page
-    * [ ] Offline devices by store
-    * [ ] Security appliance information
-        * [ ] WAN 1/ WAN 2 offline status
+* [X] ~~*post data to page*~~ [2020-03-05]
+    * [ ] Offline devices by store by button click
+    * [X] ~~*Security appliance information*~~ [2020-03-05]
+        * [X] ~~*WAN 1/ WAN 2 offline status*~~ [2020-03-05]
 
 --------------------------------------------------------------------------------------------
 
-## Phase V
+## Phase V [Extra]
 
-* [ ] Automations
+* [ ] Sort data in order by store
+* [ ] Re-pull data automatically every 5 minutes. Notify when last pulled? Need to replace data in server?
 
 --------------------------------------------------------------------------------------------
 
 ## Phase VI
 
-* [ ] Firewall Settings
+* [ ] Automations
 
 
 

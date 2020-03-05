@@ -240,7 +240,7 @@ async function dataSet() {
     // .catch(e => console.log(e))
 }
 
-dataSet();
+
 
 // ================================================================================
 // Set Interval to continuosly clear and update data
@@ -249,15 +249,15 @@ function clearData() {
   setInterval(function() {
     console.log("clearing.....")
     axios.post(baseURL + '/api/clear')
+    dataSet();
     // location.reload()
-  }, 150000)
+  }, 180000)
 }
 
-// $("#clear").on('click', function() {
-//   alert("Clearing....")
+
   clearData();
   
-// })
+
 
 // Listener
 app.listen(PORT, function () {

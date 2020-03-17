@@ -19,8 +19,8 @@ var app = express();
 var PORT = 8080;
 
 // Data Parsing
-app.use(express.json({limit: '50mb'}));
-app.use(express.urlencoded({limit: '50mb'}));
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ limit: '50mb' }));
 
 // Allow Express to serve Static Files
 app.use(express.static("public"));
@@ -210,18 +210,18 @@ async function printAll() {
 }
 
 async function merge2() {
-const initData = await printAll();
-const clientData = await clients();
-const temp = [];
-initData.forEach(function(res, index) {
-  clientData.forEach(function(res2, index2) {
-    if (index === index2) {
-      res.push(res2)
-      temp.push(res)
-    }
+  const initData = await printAll();
+  const clientData = await clients();
+  const temp = [];
+  initData.forEach(function (res, index) {
+    clientData.forEach(function (res2, index2) {
+      if (index === index2) {
+        res.push(res2)
+        temp.push(res)
+      }
+    })
   })
-})
-return temp;
+  return temp;
 
 
 }
@@ -237,26 +237,25 @@ async function dataSet() {
   console.log(data)
   console.log("Posting........")
   axios.post(baseURL + '/api/data', data)
-    // .catch(e => console.log(e))
+  // .catch(e => console.log(e))
 }
-
-
 
 // ================================================================================
 // Set Interval to continuosly clear and update data
 // ================================================================================ 
+
 function clearData() {
-  setInterval(function() {
+  setInterval(function () {
     console.log("clearing.....")
     axios.post(baseURL + '/api/clear')
     dataSet();
     // location.reload()
-  }, 180000)
+  }, 900000)
 }
 
 
-  clearData();
-  
+clearData();
+
 
 
 // Listener

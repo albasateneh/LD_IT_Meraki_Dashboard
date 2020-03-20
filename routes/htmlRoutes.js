@@ -4,4 +4,8 @@ module.exports = function(app) {
     app.get("/", function(req, res) {
         res.sendFile(path.join(__dirname, "../public/dashboard.html"))
     });
+
+    app.get("/devices", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public/devices.html" ))
+    })
 };

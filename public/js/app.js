@@ -3,9 +3,13 @@ $(document).ready(function() {
   
     $.get("/api/data", function(data) {
 
-  data.forEach(function(res) {
+
+
+  data.forEach(function(res, index) {
      var listItem = $("<li id = 'list-item' class='list-group-item mt-4'>");
-var devices = res
+ 
+
+  var button = $("<a class= 'btn btn-primary btn-lg' role='button' id = " + index + ">" )
      listItem.append(
       $("<h3>").text(res[2].name),
       $("<hr>"),
@@ -20,13 +24,13 @@ var devices = res
       $("<li>").text("Public IP: " +  res[1].publicIp),
       $("<li>").text("Using Static: " + res[1].usingStaticIp),
       $("<hr>"),
-      $("<li>").text("Device Name: " + devices[3][0].description),
-      $("<li>").text("IP: " + devices[3][0].ip),
-      $("<li>").text("Status " + devices[3][0].status)
+      
+     
       
       
 
      );
+     listItem.append(button)
         $("#body").append(listItem)
 
    

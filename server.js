@@ -234,8 +234,9 @@ const baseURL = "http://localhost:8080"
 
 async function dataSet() {
   const data = await merge2();
-  console.log(data)
   console.log("Posting........")
+  console.log(data)
+  console.log("Posted!")
   axios.post(baseURL + '/api/data', data)
   // .catch(e => console.log(e))
 }

@@ -9,7 +9,7 @@ $(document).ready(function() {
      var listItem = $("<li id = 'list-item' class='list-group-item mt-4'>");
  
 
-  var button = $("<a class= 'btn btn-primary btn-lg' role='button' id = " + index + ">" )
+  var button = $("<a class= 'btn btn-primary btn-lg clickMe' role='button' id = " + index + ">" )
      listItem.append(
       $("<h3>").text(res[2].name),
       $("<hr>"),
@@ -36,6 +36,17 @@ $(document).ready(function() {
    
     })
     
+  
+    $(".clickMe").on("click", function() {
+      var id = this.id
+      console.log(id)
+      data.forEach(function(res, index) {
+        var num = index.toString()
+       if(num === id) {
+         console.log(res[3])
+       }
+      })
+    })
  
   })
 

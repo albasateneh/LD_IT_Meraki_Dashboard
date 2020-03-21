@@ -39,11 +39,19 @@ $(document).ready(function() {
   
     $(".clickMe").on("click", function() {
       var id = this.id
-      console.log(id)
       data.forEach(function(res, index) {
         var num = index.toString()
        if(num === id) {
-         console.log(res[3])
+         res[3].forEach(function(res) {
+           if (res.status === "Offline") {
+             console.log(res.description + " " + "IP: " + res.ip + " " + "is Offline!!!")
+             console.log("Last Seen " + res.lastSeen)
+             console.log("-----------------------------------------")
+             console.log("-----------------------------------------")
+             console.log("-----------------------------------------")
+
+           }
+         })
        }
       })
     })

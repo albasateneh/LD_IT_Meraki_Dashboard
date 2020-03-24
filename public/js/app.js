@@ -1,5 +1,7 @@
 $(document).ready(function() {
+  
   $("#button").on("click", function() {
+    
   
     $.get("/api/data", function(data) {
 
@@ -9,7 +11,7 @@ $(document).ready(function() {
      var listItem = $("<li id = 'list-item' class='list-group-item mt-4'>");
  
 
-  var button = $("<a class= 'btn btn-primary btn-lg clickMe' role='button' id = " + index + ">" )
+  var button = $("<input class= 'btn btn-danger btn-lg clickMe' value = 'Check Offline' role='button' id = " + index + ">" )
      listItem.append(
       $("<h3>").text(res[2].name),
       $("<hr>"),
@@ -31,6 +33,9 @@ $(document).ready(function() {
 
      );
      listItem.append(button)
+     listItem.append($("<hr>"))
+     listItem.append("<div id = " + index + "div" + ">")
+     
         $("#body").append(listItem)
 
    
@@ -44,6 +49,10 @@ $(document).ready(function() {
        if(num === id) {
          res[3].forEach(function(res) {
            if (res.status === "Offline") {
+            $("#" + id + "div").append(
+              $("<li>").text(res.description + " " + "IP: " + res.ip + " " + "is Offline!!!"),
+
+             )
              console.log(res.description + " " + "IP: " + res.ip + " " + "is Offline!!!")
              console.log("Last Seen " + res.lastSeen)
              console.log("-----------------------------------------")

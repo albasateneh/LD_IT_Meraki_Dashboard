@@ -41,33 +41,59 @@ $(document).ready(function () {
 
       })
 
+      
+      data.forEach(function (res, index) {
+        var id = index
+        var id = index.toString()
+        var num = index.toString()
+        if (num === id) {
+          res[3].forEach(function (res) {
+            if (res.status === "Offline") {
+              $("#" + id + "div").append(
+                $("<li>").text(res.description + " " + "IP: " + res.ip + " " + "is Offline!!!"),
+                $("<hr>")
 
-      $(".clickMe").on("click", function () {
-        var id = this.id
-        data.forEach(function (res, index) {
-          var num = index.toString()
-          if (num === id) {
-            res[3].forEach(function (res) {
-              if (res.status === "Offline") {
-                $("#" + id + "div").append(
-                  $("<li>").text(res.description + " " + "IP: " + res.ip + " " + "is Offline!!!"),
-                  $("<hr>")
+              )
+              console.log(res.description + " " + "IP: " + res.ip + " " + "is Offline!!!")
+              console.log("Last Seen " + res.lastSeen)
+              console.log("-----------------------------------------")
+              console.log("-----------------------------------------")
+              console.log("-----------------------------------------")
 
-                )
-                console.log(res.description + " " + "IP: " + res.ip + " " + "is Offline!!!")
-                console.log("Last Seen " + res.lastSeen)
-                console.log("-----------------------------------------")
-                console.log("-----------------------------------------")
-                console.log("-----------------------------------------")
+            }
+          })
+        }
 
-              }
-            })
-          }
-
-
-        })
 
       })
+
+
+      // $(".clickMe").on("click", function () {
+      //   var id = this.id
+      //   data.forEach(function (res, index) {
+      //     var num = index.toString()
+      //     if (num === id) {
+      //       res[3].forEach(function (res) {
+      //         if (res.status === "Offline") {
+      //           $("#" + id + "div").append(
+      //             $("<li>").text(res.description + " " + "IP: " + res.ip + " " + "is Offline!!!"),
+      //             $("<hr>")
+
+      //           )
+      //           console.log(res.description + " " + "IP: " + res.ip + " " + "is Offline!!!")
+      //           console.log("Last Seen " + res.lastSeen)
+      //           console.log("-----------------------------------------")
+      //           console.log("-----------------------------------------")
+      //           console.log("-----------------------------------------")
+
+      //         }
+      //       })
+      //     }
+
+
+      //   })
+
+      // })
 
     })
 

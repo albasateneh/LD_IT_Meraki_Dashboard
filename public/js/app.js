@@ -11,7 +11,7 @@ $(document).ready(function () {
         var listItem = $("<li id = 'list-item' class='list-group-item mt-4'>");
 
 
-        var button = $("<input class= 'btn btn-danger btn-lg clickMe' value = 'Check Offline' role='button' id = " + index + ">")
+        // var button = $("<input class= 'btn btn-danger btn-lg clickMe' value = 'Check Offline' role='button' id = " + index + ">")
         listItem.append(
           $("<h3>").text(res[2].name),
           $("<hr>"),
@@ -32,7 +32,7 @@ $(document).ready(function () {
 
 
         );
-        listItem.append(button)
+        listItem.append($("<h3>").text("Offline Devices"))
         listItem.append($("<hr>"))
         listItem.append("<div id = " + index + "div" + ">")
 
@@ -50,11 +50,11 @@ $(document).ready(function () {
           res[3].forEach(function (res) {
             if (res.status === "Offline") {
               $("#" + id + "div").append(
-                $("<li>").text(res.description + " " + "IP: " + res.ip + " " + "is Offline!!!"),
+                $("<li>").text(res.description + " | " + "IP: " + res.ip),
                 $("<hr>")
 
               )
-              console.log(res.description + " " + "IP: " + res.ip + " " + "is Offline!!!")
+              console.log(res.description + " | " + "IP: " + res.ip)
               console.log("Last Seen " + res.lastSeen)
               console.log("-----------------------------------------")
               console.log("-----------------------------------------")

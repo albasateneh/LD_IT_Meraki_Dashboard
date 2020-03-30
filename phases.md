@@ -61,7 +61,7 @@
 * [X] ~~*Design UI/UX*~~ [2020-03-05]
 
 * [X] ~~*post data to page*~~ [2020-03-05]
-    * [ ] Offline devices by store by button click
+    * [ ] Offline devices by store by button click (changed to 1 button which displays all data)
     * [ ] Progress bar/notification of pending data
     * [X] ~~*Security appliance information*~~ [2020-03-05]
         * [X] ~~*WAN 1/ WAN 2 offline status*~~ [2020-03-05]

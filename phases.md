@@ -78,7 +78,16 @@
 
 ## Phase VI
 
-* [ ] Automations
+* [X] ~~*Pseudocode Email Automation*~~ [2020-08-14]
+    * [ ] Pull data into email.js
+    * [ ] New Array containing stores "WITH NO WAN 2 and only using WAN2"
+    * [ ] Email generator template
+    * [ ] Test Emails
+    * [ ] Configure for Azure
+    * [ ] Deploy to Azure
+
+
+
 
 
 

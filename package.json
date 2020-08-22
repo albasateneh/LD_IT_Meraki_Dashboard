@@ -10,6 +10,8 @@
     "express": "^4.17.1",
     "file-system": "^2.2.2",
     "meraki": "^1.5.0",
+    "nodejs-nodemailer-outlook": "^1.2.3",
+    "nodemailer": "^6.4.11",
     "path": "^0.12.7"
   },
   "devDependencies": {},

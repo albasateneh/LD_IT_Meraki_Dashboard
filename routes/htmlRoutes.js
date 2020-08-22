@@ -5,7 +5,7 @@ module.exports = function(app) {
         res.sendFile(path.join(__dirname, "../public/dashboard.html"))
     });
 
-    app.get("/email", function(req, res) {
-        res.sendFile(path.join(__dirname, "../public/email.html"))
-    })
+    // app.get("/email", function(req, res) {
+    //     res.sendFile(path.join(__dirname, "../public/email.html"))
+    // })
 };

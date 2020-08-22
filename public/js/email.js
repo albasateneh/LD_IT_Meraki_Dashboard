@@ -1,5 +1,30 @@
-// var nodeoutlook = require('nodejs-nodemailer-outlook')  
 const axios = require("axios");
+var nodemailer = require('nodemailer');
+
+var transporter = nodemailer.createTransport({
+  service: 'Gmail',
+  auth: {
+    user: 'sam.albasateneh@gmail.com',
+    pass: 'meteora!'
+  }
+})
+console.log('created')
+var mailOptions = {
+  from: 'sam.albasateneh@gmail.com',
+  to: 'salbasateneh@lazydogrestaurants.com',
+  subject: 'TEST',
+  text: 'test'
+}
+
+transporter.sendMail(mailOptions, function(error, info) {
+  if (error) {
+    console.log(error);
+  }
+  else {
+    console.log('Email sent: ' + info.response);
+  }
+})
+
 
 
 const baseURL = "http://localhost:8080"
@@ -20,6 +45,7 @@ axios.get(baseURL + "/api/data")
       return temp
     })
     console.log(temp)
+
   })
         // .catch(e => console.log(e))
 

@@ -250,11 +250,11 @@ function runEmailAuto() {
       nodeoutlook.sendEmail({
         auth: {
           user: "notifications@lazydogrestaurants.com",
-          pass: "jVY4s84s"
+            pass: "jVY4s84s"
         },
         from: 'notifications@lazydogrestaurants.com',
         to: 'iit@lazydogrestaurants.com',
-        subject: res.str,
+        subject: 'Alert for ' + res.str + ' - ' + res.interface + ' ' + res.status,
         text: 'Store Meraki: ' + res.interface + " " + res.status,
         onError: (e) => console.log(e),
         onSuccess: (i) => console.log(i)
@@ -289,7 +289,7 @@ resData2.forEach(function(res2) {
           },
           from: 'notifications@lazydogrestaurants.com',
           to: 'iit@lazydogrestaurants.com',
-          subject: res.str,
+          subject: 'Alert for ' + res.str + ' - ' + res.interface + ' ' + res.status,
           text: 'Store Meraki: ' + res.interface + " " + res.status,
           onError: (e) => console.log(e),
           onSuccess: (i) => console.log(i)

@@ -32,9 +32,9 @@ resData2.forEach(function(res2) {
             pass: "jVY4s84s"
           },
           from: 'notifications@lazydogrestaurants.com',
-          to: 'salbasateneh@lazydogrestaurants.com',
-          subject: res.str,
-          text: res.interface + " " + res.status,
+          to: 'iit@lazydogrestaurants.com',
+          subject: 'Alert for ' + res.str + ' - ' + res.interface + ' ' + res.status,
+          text: 'Store Meraki: ' + res.interface + " " + res.status,
           onError: (e) => console.log(e),
           onSuccess: (i) => console.log(i)
         })
@@ -65,9 +65,9 @@ resData2.forEach(function(res2) {
             pass: "jVY4s84s"
         },
         from: 'notifications@lazydogrestaurants.com',
-        to: 'salbasateneh@lazydogrestaurants.com',
-        subject: res.str,
-        text: res.interface + " " + res.status,
+        to: 'iit@lazydogrestaurants.com',
+        subject: 'Alert for ' + res.str + ' - ' + res.interface + ' ' + res.status,
+        text: 'Store Meraki: ' + res.interface + " " + res.status,
         onError: (e) => console.log(e),
         onSuccess: (i) => console.log(i)
       })

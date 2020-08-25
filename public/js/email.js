@@ -28,10 +28,10 @@ resData2.forEach(function(res2) {
         console.log(res.str + " | " + res.interface + " " + res.status)
         nodeoutlook.sendEmail({
           auth: {
-            user: "salbasateneh@lazydogrestaurants.com",
-            pass: "rvpzmdmqghrtpypn"
+            user: "notifications@lazydogrestaurants.com",
+            pass: "jVY4s84s"
           },
-          from: 'salbasateneh@lazydogrestaurants.com',
+          from: 'notifications@lazydogrestaurants.com',
           to: 'salbasateneh@lazydogrestaurants.com',
           subject: res.str,
           text: res.interface + " " + res.status,
@@ -61,10 +61,10 @@ resData2.forEach(function(res2) {
       console.log(res.str + " | " + res.interface + " " + res.status)
       nodeoutlook.sendEmail({
         auth: {
-          user: "salbasateneh@lazydogrestaurants.com",
-          pass: "rvpzmdmqghrtpypn"
+          user: "notifications@lazydogrestaurants.com",
+            pass: "jVY4s84s"
         },
-        from: 'salbasateneh@lazydogrestaurants.com',
+        from: 'notifications@lazydogrestaurants.com',
         to: 'salbasateneh@lazydogrestaurants.com',
         subject: res.str,
         text: res.interface + " " + res.status,

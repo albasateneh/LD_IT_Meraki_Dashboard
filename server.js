@@ -249,11 +249,11 @@ function runEmailAuto() {
       console.log(res.str + " | " + res.interface + " " + res.status)
       nodeoutlook.sendEmail({
         auth: {
-          user: "salbasateneh@lazydogrestaurants.com",
-          pass: "rvpzmdmqghrtpypn"
+          user: "notifications@lazydogrestaurants.com",
+          pass: "jVY4s84s"
         },
-        from: 'salbasateneh@lazydogrestaurants.com',
-        to: 'salbasateneh@lazydogrestaurants.com',
+        from: 'notifications@lazydogrestaurants.com',
+        to: 'iit@lazydogrestaurants.com',
         subject: res.str,
         text: 'Store Meraki: ' + res.interface + " " + res.status,
         onError: (e) => console.log(e),
@@ -284,11 +284,11 @@ resData2.forEach(function(res2) {
         console.log(res.str + " | " + res.interface + " " + res.status)
         nodeoutlook.sendEmail({
           auth: {
-            user: "salbasateneh@lazydogrestaurants.com",
-            pass: "rvpzmdmqghrtpypn"
+            user: "notifications@lazydogrestaurants.com",
+            pass: "jVY4s84s"
           },
-          from: 'salbasateneh@lazydogrestaurants.com',
-          to: 'salbasateneh@lazydogrestaurants.com',
+          from: 'notifications@lazydogrestaurants.com',
+          to: 'iit@lazydogrestaurants.com',
           subject: res.str,
           text: 'Store Meraki: ' + res.interface + " " + res.status,
           onError: (e) => console.log(e),

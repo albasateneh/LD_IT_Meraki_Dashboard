@@ -1,7 +1,10 @@
+const dotenv = require('dotenv');
+dotenv.config();
+console.log(`Your pw is ${process.env.notEmailPW}`)
+
+
 const axios = require("axios");
 var nodeoutlook = require('nodejs-nodemailer-outlook')
-
-
 
 const baseURL = "http://localhost:8080"
 
@@ -29,7 +32,7 @@ resData2.forEach(function(res2) {
         nodeoutlook.sendEmail({
           auth: {
             user: "notifications@lazydogrestaurants.com",
-            pass: "jVY4s84s"
+            pass: ""
           },
           from: 'notifications@lazydogrestaurants.com',
           to: 'salbasateneh@lazydogrestaurants.com',
@@ -65,7 +68,7 @@ resData2.forEach(function(res2) {
       nodeoutlook.sendEmail({
         auth: {
           user: "notifications@lazydogrestaurants.com",
-            pass: "jVY4s84s"
+            pass: ""
         },
         from: 'notifications@lazydogrestaurants.com',
         to: 'salbasateneh@lazydogrestaurants.com',

@@ -330,7 +330,7 @@ function clearData() {
     axios.post(baseURL + '/api/clear')
     dataSet();
     // location.reload()
-  }, 900000)
+  }, 300000)
 }
 
 

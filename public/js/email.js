@@ -32,9 +32,9 @@ resData2.forEach(function(res2) {
             pass: "jVY4s84s"
           },
           from: 'notifications@lazydogrestaurants.com',
-          to: 'iit@lazydogrestaurants.com',
+          to: 'salbasateneh@lazydogrestaurants.com',
           subject: 'Alert for ' + res.str + ' - ' + res.interface + ' ' + res.status,
-          text: 'Store Meraki: ' + res.interface + " " + res.status,
+          text: res.interface + " " + res.status,
           onError: (e) => console.log(e),
           onSuccess: (i) => console.log(i)
         })
@@ -50,11 +50,14 @@ resData2.forEach(function(res2) {
       var str = res[2].name
       var interface = res[1].interface
       var status = res[1].status
+      
       if (res[1].status != "Ready" && !str.includes("GUEST") && !str.includes("Guest") && res[1].status != "Active") {
         // console.log(res[2].name + " | " + res[1].interface + " " + res[1].status + ". ")
         temp.push({ str, interface, status })
+        return temp
       }
-      return temp
+     
+    
     })
     // console.log(temp)
     temp.forEach(function (res) {
@@ -65,9 +68,9 @@ resData2.forEach(function(res2) {
             pass: "jVY4s84s"
         },
         from: 'notifications@lazydogrestaurants.com',
-        to: 'iit@lazydogrestaurants.com',
+        to: 'salbasateneh@lazydogrestaurants.com',
         subject: 'Alert for ' + res.str + ' - ' + res.interface + ' ' + res.status,
-        text: 'Store Meraki: ' + res.interface + " " + res.status,
+        text: 'Store Meraki ' + res.interface + " " + res.status,
         onError: (e) => console.log(e),
         onSuccess: (i) => console.log(i)
       })

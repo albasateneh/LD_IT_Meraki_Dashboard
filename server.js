@@ -6,6 +6,9 @@ const meraki = require("meraki");
 const axios = require("axios");
 var nodeoutlook = require('nodejs-nodemailer-outlook')
 
+const dotenv = require('dotenv');
+dotenv.config();
+console.log(`Your pw is ${process.env.notEmailPW}`)
 // ================================================================================
 // Get Key
 // ================================================================================
@@ -242,7 +245,7 @@ function runEmailAuto() {
         var str = res[2].name
         var interface = res[1].interface
         var status = res[1].status
-        if (res[1].status != "Ready" && !str.includes("GUEST") && !str.includes("Guest") && res[1].status != "Active") {
+        if (res[1].status != "Ready"  && !str.includes("Guest") && res[1].status != "Active") {
           // console.log(res[2].name + " | " + res[1].interface + " " + res[1].status + ". ")
           temp.push({ str, interface, status })
         }
@@ -254,10 +257,10 @@ function runEmailAuto() {
         nodeoutlook.sendEmail({
           auth: {
             user: "notifications@lazydogrestaurants.com",
-            pass: "jVY4s84s"
+            pass: process.env.notEmailPW
           },
           from: 'notifications@lazydogrestaurants.com',
-          to: 'iit@lazydogrestaurants.com',
+          to: 'salbasateneh@lazydogrestaurants.com',
           subject: 'Alert for ' + res.str + ' - ' + res.interface + ' ' + res.status,
           text: 'Store Meraki: ' + res.interface + " " + res.status,
           onError: (e) => console.log(e),
@@ -289,10 +292,10 @@ function runEmailAuto() {
         nodeoutlook.sendEmail({
           auth: {
             user: "notifications@lazydogrestaurants.com",
-            pass: "jVY4s84s"
+            pass: process.env.notEmailPW
           },
           from: 'notifications@lazydogrestaurants.com',
-          to: 'iit@lazydogrestaurants.com',
+          to: 'salbasateneh@lazydogrestaurants.com',
           subject: 'Alert for ' + res.str + ' - ' + res.interface + ' ' + res.status,
           text: 'Store Meraki: ' + res.interface + " " + res.status,
           onError: (e) => console.log(e),

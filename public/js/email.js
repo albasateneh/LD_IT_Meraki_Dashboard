@@ -27,22 +27,38 @@ resData2.forEach(function(res2) {
         return temp2
       })
       // console.log(temp)
-      temp2.forEach(function (res) {
-        console.log(res.str + " | " + res.interface + " " + res.status)
+      if (temp2.length == 0) {
         nodeoutlook.sendEmail({
           auth: {
             user: "notifications@lazydogrestaurants.com",
-            pass: ""
+              pass: ""
           },
           from: 'notifications@lazydogrestaurants.com',
           to: 'salbasateneh@lazydogrestaurants.com',
-          subject: 'Alert for ' + res.str + ' - ' + res.interface + ' ' + res.status,
-          text: res.interface + " " + res.status,
+          subject: 'Alert: WAN 1 Connected @ All Locations',
+          text: 'Alert: All Stores Online ',
           onError: (e) => console.log(e),
           onSuccess: (i) => console.log(i)
         })
+      } else {
+        temp2.forEach(function (res) {
+          console.log(res.str + " | " + res.interface + " " + res.status)
+          nodeoutlook.sendEmail({
+            auth: {
+              user: "notifications@lazydogrestaurants.com",
+              pass: ""
+            },
+            from: 'notifications@lazydogrestaurants.com',
+            to: 'salbasateneh@lazydogrestaurants.com',
+            subject: 'Alert for ' + res.str + ' - ' + res.interface + ' ' + res.status,
+            text: res.interface + " " + res.status,
+            onError: (e) => console.log(e),
+            onSuccess: (i) => console.log(i)
+          })
+       
+        })
+      }
      
-      })
     })
 
     axios.get(baseURL + "/api/data")
@@ -63,8 +79,7 @@ resData2.forEach(function(res2) {
     
     })
     // console.log(temp)
-    temp.forEach(function (res) {
-      console.log(res.str + " | " + res.interface + " " + res.status)
+    if (temp.length == 0) {
       nodeoutlook.sendEmail({
         auth: {
           user: "notifications@lazydogrestaurants.com",
@@ -72,13 +87,30 @@ resData2.forEach(function(res2) {
         },
         from: 'notifications@lazydogrestaurants.com',
         to: 'salbasateneh@lazydogrestaurants.com',
-        subject: 'Alert for ' + res.str + ' - ' + res.interface + ' ' + res.status,
-        text: 'Store Meraki ' + res.interface + " " + res.status,
+        subject: 'Alert: WAN 2 Connected @ All Locations ',
+        text: 'Alert: All Stores Online ',
         onError: (e) => console.log(e),
         onSuccess: (i) => console.log(i)
       })
-   
-    })
+    } else {
+      temp.forEach(function (res) {
+        console.log(res.str + " | " + res.interface + " " + res.status)
+        nodeoutlook.sendEmail({
+          auth: {
+            user: "notifications@lazydogrestaurants.com",
+              pass: ""
+          },
+          from: 'notifications@lazydogrestaurants.com',
+          to: 'salbasateneh@lazydogrestaurants.com',
+          subject: 'Alert for ' + res.str + ' - ' + res.interface + ' ' + res.status,
+          text: 'Store Meraki ' + res.interface + " " + res.status,
+          onError: (e) => console.log(e),
+          onSuccess: (i) => console.log(i)
+        })
+     
+      })
+    }
+  
 
   })
   

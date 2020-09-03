@@ -245,29 +245,45 @@ function runEmailAuto() {
         var str = res[2].name
         var interface = res[1].interface
         var status = res[1].status
-        if (res[1].status != "Ready"  && !str.includes("Guest") && res[1].status != "Active") {
+        if (res[1].status != "Ready"  && !str.includes("GUEST") && !str.includes("Guest") && res[1].status != "Active") {
           // console.log(res[2].name + " | " + res[1].interface + " " + res[1].status + ". ")
           temp.push({ str, interface, status })
         }
         return temp
       })
       // console.log(temp)
-      temp.forEach(function (res) {
-        console.log(res.str + " | " + res.interface + " " + res.status)
+      if (temp.length == 0) {
         nodeoutlook.sendEmail({
           auth: {
-            user: "notifications@lazydogrestaurants.com",
-            pass: process.env.notEmailPW
+            user: process.env.email,
+              pass: process.env.notEmailPW
           },
           from: 'notifications@lazydogrestaurants.com',
           to: 'salbasateneh@lazydogrestaurants.com',
-          subject: 'Alert for ' + res.str + ' - ' + res.interface + ' ' + res.status,
-          text: 'Store Meraki: ' + res.interface + " " + res.status,
+          subject: 'Alert: WAN 2 Connected @ All Locations ',
+          text: 'Alert: All Stores Online ',
           onError: (e) => console.log(e),
           onSuccess: (i) => console.log(i)
         })
-
-      })
+      } else {
+        temp.forEach(function (res) {
+          console.log(res.str + " | " + res.interface + " " + res.status)
+          nodeoutlook.sendEmail({
+            auth: {
+              user: process.env.email,
+              pass: process.env.notEmailPW
+            },
+            from: 'notifications@lazydogrestaurants.com',
+            to: 'salbasateneh@lazydogrestaurants.com',
+            subject: 'Alert for ' + res.str + ' - ' + res.interface + ' ' + res.status,
+            text: 'Store Meraki: ' + res.interface + " " + res.status,
+            onError: (e) => console.log(e),
+            onSuccess: (i) => console.log(i)
+          })
+  
+        })
+      }
+   
 
 
     })
@@ -287,22 +303,38 @@ function runEmailAuto() {
         return temp2
       })
       // console.log(temp)
-      temp2.forEach(function (res) {
-        console.log(res.str + " | " + res.interface + " " + res.status)
+      if (temp2.length == 0) {
         nodeoutlook.sendEmail({
           auth: {
-            user: "notifications@lazydogrestaurants.com",
-            pass: process.env.notEmailPW
+            user: process.env.email,
+              pass: process.env.notEmailPW
           },
           from: 'notifications@lazydogrestaurants.com',
           to: 'salbasateneh@lazydogrestaurants.com',
-          subject: 'Alert for ' + res.str + ' - ' + res.interface + ' ' + res.status,
-          text: 'Store Meraki: ' + res.interface + " " + res.status,
+          subject: 'Alert: WAN 1 Connected @ All Locations',
+          text: 'Alert: All Stores Online ',
           onError: (e) => console.log(e),
           onSuccess: (i) => console.log(i)
         })
-
-      })
+      } else {
+        temp2.forEach(function (res) {
+          console.log(res.str + " | " + res.interface + " " + res.status)
+          nodeoutlook.sendEmail({
+            auth: {
+              user: process.env.email,
+              pass: process.env.notEmailPW
+            },
+            from: 'notifications@lazydogrestaurants.com',
+            to: 'salbasateneh@lazydogrestaurants.com',
+            subject: 'Alert for ' + res.str + ' - ' + res.interface + ' ' + res.status,
+            text: 'Store Meraki: ' + res.interface + " " + res.status,
+            onError: (e) => console.log(e),
+            onSuccess: (i) => console.log(i)
+          })
+  
+        })
+      }
+  
     })
 
 }

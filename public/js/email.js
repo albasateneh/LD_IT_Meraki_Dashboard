@@ -31,12 +31,12 @@ resData2.forEach(function(res2) {
         nodeoutlook.sendEmail({
           auth: {
             user: "notifications@lazydogrestaurants.com",
-              pass: ""
+              pass: "jVY4s84s"
           },
           from: 'notifications@lazydogrestaurants.com',
           to: 'salbasateneh@lazydogrestaurants.com',
-          subject: 'Alert: WAN 1 Connected @ All Locations',
-          text: 'Alert: All Stores Online ',
+          subject: 'Store Meraki [WAN 1] All Stores Online',
+          text: 'All Stores Online ',
           onError: (e) => console.log(e),
           onSuccess: (i) => console.log(i)
         })
@@ -46,7 +46,7 @@ resData2.forEach(function(res2) {
           nodeoutlook.sendEmail({
             auth: {
               user: "notifications@lazydogrestaurants.com",
-              pass: ""
+              pass: "jVY4s84s"
             },
             from: 'notifications@lazydogrestaurants.com',
             to: 'salbasateneh@lazydogrestaurants.com',
@@ -83,12 +83,12 @@ resData2.forEach(function(res2) {
       nodeoutlook.sendEmail({
         auth: {
           user: "notifications@lazydogrestaurants.com",
-            pass: ""
+            pass: "jVY4s84s"
         },
         from: 'notifications@lazydogrestaurants.com',
         to: 'salbasateneh@lazydogrestaurants.com',
-        subject: 'Alert: WAN 2 Connected @ All Locations ',
-        text: 'Alert: All Stores Online ',
+        subject: 'Store Meraki [WAN 2] All Stores Online ',
+        text: 'All Stores Online ',
         onError: (e) => console.log(e),
         onSuccess: (i) => console.log(i)
       })
@@ -98,7 +98,7 @@ resData2.forEach(function(res2) {
         nodeoutlook.sendEmail({
           auth: {
             user: "notifications@lazydogrestaurants.com",
-              pass: ""
+              pass: "jVY4s84s"
           },
           from: 'notifications@lazydogrestaurants.com',
           to: 'salbasateneh@lazydogrestaurants.com',

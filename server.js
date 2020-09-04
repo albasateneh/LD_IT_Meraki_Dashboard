@@ -258,10 +258,10 @@ function runEmailAuto() {
             user: process.env.email,
               pass: process.env.notEmailPW
           },
-          from: 'notifications@lazydogrestaurants.com',
-          to: 'salbasateneh@lazydogrestaurants.com',
-          subject: 'Alert: WAN 2 Connected @ All Locations ',
-          text: 'Alert: All Stores Online ',
+          from: process.env.email,
+          to: process.env.myEmailUN,
+          subject: 'Store Meraki [WAN 2] All Stores Online ',
+          text: 'All Stores Online ',
           onError: (e) => console.log(e),
           onSuccess: (i) => console.log(i)
         })
@@ -273,8 +273,8 @@ function runEmailAuto() {
               user: process.env.email,
               pass: process.env.notEmailPW
             },
-            from: 'notifications@lazydogrestaurants.com',
-            to: 'salbasateneh@lazydogrestaurants.com',
+            from: process.env.email,
+            to: process.env.myEmailUN,
             subject: 'Alert for ' + res.str + ' - ' + res.interface + ' ' + res.status,
             text: 'Store Meraki: ' + res.interface + " " + res.status,
             onError: (e) => console.log(e),
@@ -309,10 +309,10 @@ function runEmailAuto() {
             user: process.env.email,
               pass: process.env.notEmailPW
           },
-          from: 'notifications@lazydogrestaurants.com',
-          to: 'salbasateneh@lazydogrestaurants.com',
-          subject: 'Alert: WAN 1 Connected @ All Locations',
-          text: 'Alert: All Stores Online ',
+          from: process.env.email,
+          to: process.env.myEmailUN,
+          subject: 'Store Meraki [WAN 1] All Stores Online',
+          text: 'All Stores Online ',
           onError: (e) => console.log(e),
           onSuccess: (i) => console.log(i)
         })
@@ -324,8 +324,8 @@ function runEmailAuto() {
               user: process.env.email,
               pass: process.env.notEmailPW
             },
-            from: 'notifications@lazydogrestaurants.com',
-            to: 'salbasateneh@lazydogrestaurants.com',
+            from: process.env.email,
+            to: process.env.myEmailUN,
             subject: 'Alert for ' + res.str + ' - ' + res.interface + ' ' + res.status,
             text: 'Store Meraki: ' + res.interface + " " + res.status,
             onError: (e) => console.log(e),
@@ -365,7 +365,7 @@ function clearData() {
     axios.post(baseURL + '/api/clear')
     dataSet();
     // location.reload()
-  }, 300000)
+  }, 900000)
 }
 
 

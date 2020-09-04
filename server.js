@@ -8,7 +8,7 @@ var nodeoutlook = require('nodejs-nodemailer-outlook')
 
 const dotenv = require('dotenv');
 dotenv.config();
-console.log(`Your pw is ${process.env.notEmailPW}`)
+
 // ================================================================================
 // Get Key
 // ================================================================================

@@ -31,7 +31,7 @@ resData2.forEach(function(res2) {
         nodeoutlook.sendEmail({
           auth: {
             user: "notifications@lazydogrestaurants.com",
-              pass: "jVY4s84s"
+              pass: ""
           },
           from: 'notifications@lazydogrestaurants.com',
           to: 'salbasateneh@lazydogrestaurants.com',
@@ -46,7 +46,7 @@ resData2.forEach(function(res2) {
           nodeoutlook.sendEmail({
             auth: {
               user: "notifications@lazydogrestaurants.com",
-              pass: "jVY4s84s"
+              pass: ""
             },
             from: 'notifications@lazydogrestaurants.com',
             to: 'salbasateneh@lazydogrestaurants.com',
@@ -83,7 +83,7 @@ resData2.forEach(function(res2) {
       nodeoutlook.sendEmail({
         auth: {
           user: "notifications@lazydogrestaurants.com",
-            pass: "jVY4s84s"
+            pass: ""
         },
         from: 'notifications@lazydogrestaurants.com',
         to: 'salbasateneh@lazydogrestaurants.com',
@@ -98,7 +98,7 @@ resData2.forEach(function(res2) {
         nodeoutlook.sendEmail({
           auth: {
             user: "notifications@lazydogrestaurants.com",
-              pass: "jVY4s84s"
+              pass: ""
           },
           from: 'notifications@lazydogrestaurants.com',
           to: 'salbasateneh@lazydogrestaurants.com',
